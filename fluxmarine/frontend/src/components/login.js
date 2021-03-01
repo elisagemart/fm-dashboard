@@ -14,10 +14,10 @@ class Login extends Component {
         this.setState({[event.target.name]: event.target.value});
     }
 
-    handleSubmit(event) {
+    async handleSubmit(event) {
         event.preventDefault();
         try {
-            const response = axiosInstance.post('/token/obtain/', {
+            const response = await axiosInstance.post('/token/obtain/', {
                 username: this.state.username,
                 password: this.state.password
             });
